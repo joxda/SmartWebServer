@@ -7,12 +7,17 @@
 #if OPERATIONAL_MODE == WIFI
   #if defined(ESP32)
     #include <WiFi.h>
-    #include <WiFiClient.h>
+    #if DNS == ON
+        #include <ESPmDNS.h>
+    #endif    #include <WiFiClient.h>
     #include <WiFiAP.h>
     #include <WebServer.h>
     extern WebServer server;
   #elif defined(ESP8266)
     #include <ESP8266WiFi.h>
+    #if DNS == ON
+        #include <ESP8266mDNS.h>
+    #endif
     #include <WiFiClient.h>
     #include <ESP8266WiFiAP.h>
     #include <ESP8266WebServer.h>

@@ -82,5 +82,9 @@
                                           //         for skew in the average guide rate over the last worm period.            Option
 #define AXIS1_ENC_BIN_AVG             OFF //    OFF, n, (Number of bins.)  Enables binned rolling average feature.            Option
 
+// JJ addition ---------------------------------------------------------------------------------------------------------------------
+#define DNS                            ON // OFF     Enables an mDNS server so that the Onstep in the WiFi can be accessed    Option
+#define HOSTNAME                 "onstep" //         as 'onstep.local'
+
 // THAT'S IT FOR USER CONFIGURATION!
 // -------------------------------------------------------------------------------

@@ -211,6 +211,10 @@ Again:
   #if OPERATIONAL_MODE == WIFI
     VLF("SWS: Starting port 80 web svr");
     server.begin();
+     #if DNS == ON
+        MDNS.begin( HOSTNAME );
+        MDNS.addService("http", "tcp", 80);
+    #endif
   #endif
 
   // allow time for the background servers to come up
@@ -234,6 +238,12 @@ Again:
 
 void loop(void) {
   server.handleClient();
+
+  #if DNS == ON
+   #ifndef ESP32
+    MDNS.update();
+   #endif
+  #endif
 
   #if ENCODERS == ON
     encoders.poll();
